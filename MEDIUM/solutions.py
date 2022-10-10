@@ -18,17 +18,68 @@ def permuteUnique(l):
     permute(l,start, end, result)
     return result
 
+def trackChars(i,s,dict_chars,subs_length):
+    #try:
+        print("STEP VALUE :",i)
+        c=s[i]
+        if c in dict_chars.keys():
+            subs_length[i]=1            
+        else:
+           subs_length[i]=1 if i==0 else subs_length[i-1]+1 
+        dict_chars[c]=subs_length[i]
+    #except:
+     #   print("Issue found.")
+
+     
+def lengthOfLongestSubstring(s):
+    alphabet,subs_length, length, last_char=[-1]*257,[0]*len(s), 0, -1
+    for i in range(len(s)):
+        try:
+            c = s[i]
+            #never seen this character so far
+            if alphabet[ord(s[i])] ==-1 :
+                subs_length[i]=1 if i==0 else subs_length[i-1]+1
+                length= max(length,subs_length[i])
+                alphabet[ord(s[i])] =i
+        
+            else:
+                length=max(subs_length[i-1], i-alphabet[ord(s[i])])
+                subs_length[i]=length
+                last_char=i if subs_length[i]>subs_length[i-1] else i-1
+                alphabet[ord(s[i])] =i
+        except:
+            print("Index seems wrong ")
+    print("The length of the longest substring w/o rep. characters is ", length)
+
+    #Building a solution of the longest substring w/o repeat. chars
+    print("One of the solutions is :", s[(last_char-length):last_char])
+    return length
+
+
 def main():
-    print("TESTING PROGRAM 1 \n")
-    l=[1,1,2]
-    print(permuteUnique(l))
+   # print("TESTING PROGRAM 1 \n")
+   # l=[1,1,2]
+   # print(permuteUnique(l))
 
 
-    print("###### TESTING MY PROGRAM 2 \n")
-    l1=[1,2,3]
-    print(permuteUnique(l1))
+   # print("###### TESTING MY PROGRAM 2 \n")
+   # l1=[1,2,3]
+   # print(permuteUnique(l1))
+
+    print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
+    s= "abcabcbb"
+    print("STRING :",s)
+    res=lengthOfLongestSubstring(s)
+
+    print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
+    s= "pwwkew"
+    print("STRING :",s)
+    res=lengthOfLongestSubstring(s)
     
-
+    print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
+    s= "bbbbb"
+    print("STRING :",s)
+    res=lengthOfLongestSubstring(s)
 
 if __name__ == "__main__":
     main()
