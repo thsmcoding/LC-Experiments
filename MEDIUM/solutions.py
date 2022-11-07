@@ -55,6 +55,28 @@ def lengthOfLongestSubstring(s):
     print("One of the solutions is :", s[(last_char-length):last_char])
     return length
 
+def longestSubstring(s):
+    result, start, end, ascii_codes= "", "","", [-1]*257
+    last_repeated, temp=0,""
+    for i in range(len(s)):
+        c=s[i]
+        code_char=ord(c)
+        if ascii_codes[code_char]==-1:
+            end=s[last_repeated:i]
+            start=c
+        else:
+            end=s[ascii_codes[code_char]+1:i+1]
+            start=s[ascii_codes[code_char]:i]
+            last_repeated=i
+        print("index:",i,"end:", end, "start:", start)
+
+        ascii_codes[code_char]=i
+        temp=start if len(end)<=len(start) else end
+        print("value of temp:", temp)
+        result=result if len(temp)<=len(result) else temp
+    print("Solution found: ", result)
+    return result
+
 
 def main():
    # print("TESTING PROGRAM 1 \n")
@@ -69,17 +91,17 @@ def main():
     print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
     s= "abcabcbb"
     print("STRING :",s)
-    res=lengthOfLongestSubstring(s)
+    res=longestSubstring(s)
 
     print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
     s= "pwwkew"
     print("STRING :",s)
-    res=lengthOfLongestSubstring(s)
+    res=longestSubstring(s)
     
     print("###### TESTING LONGEST LENGTH OF SUBSTRING W/O REP. CHARACTERS \n")
     s= "bbbbb"
     print("STRING :",s)
-    res=lengthOfLongestSubstring(s)
+    res=longestSubstring(s)
 
 if __name__ == "__main__":
     main()
