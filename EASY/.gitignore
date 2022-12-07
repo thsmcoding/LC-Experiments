@@ -1,0 +1,4 @@
+#ignore all the directories and files that have the following globbing patterns
+
+/__pycache__/
+*.pyc
