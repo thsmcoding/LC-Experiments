@@ -33,7 +33,7 @@ class Solutions:
     #isPalindrome : shorter version    
     def shorter_isPalindrome(self,nbr):
         nbr_tostr=str(nbr)
-        for i in range(len(nbr_tostr)):
+        for i in range(len(nbr_tostr)//2):
             if not nbr_tostr[i] is nbr_tostr[len(nbr_tostr)-1-i]:
                 return False
         return True
