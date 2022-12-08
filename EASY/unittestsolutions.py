@@ -22,5 +22,13 @@ class SolutionUnittestsMethods(ut.TestCase):
         result5=test_obt.twoSum([3,2,4],6)
         self.assertEqual([1,2], result5, "FAIL! [1,2] was expected")        
 
+    def test_shorter_IsPalindrome(self):
+        test_obj= solutions.Solutions() 
+        result1= test_obj.shorter_isPalindrome(121)
+        self.assertEqual(result1, True,"FAIL! True expected" )
+        result2= test_obj.shorter_isPalindrome(10)
+        self.assertEqual(result2, False,"FAIL! False expected" )
+
+
 if __name__=="__main__":
     ut.main()

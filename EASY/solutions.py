@@ -16,4 +16,7 @@ class Solutions:
                 return [candidates[search], i]
             candidates[nums[i]]=i   
     
-   
+    #isPalindrome : shorter version    
+    def shorter_isPalindrome(self,nbr):
+        nbr_tostr=str(nbr)
+        return nbr_tostr[::] == nbr_tostr[::-1]
