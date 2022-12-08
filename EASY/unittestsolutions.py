@@ -20,6 +20,15 @@ class SolutionUnittestsMethods(ut.TestCase):
         self.assertEqual(result1, True, "FAIL! TRUE expected")
         #result2=test_obj.isPalindrome(int(10))                 
         #self.assertEqual(result2, False, "FAIL! FALSE expected")
+    
+    
+    def test_shorterisPalindrome(self):
+        test_obj=solutions.Solutions()
+        result1=test_obj.shorter_isPalindrome(121)
+        self.assertEqual(result1, True, "FAIL! TRUE expected")
+        #result2=test_obj.isPalindrome(int(10))                 
+        #self.assertEqual(result2, False, "FAIL! FALSE expected")
+        
                        
 if __name__=="__main__":
     ut.main()
