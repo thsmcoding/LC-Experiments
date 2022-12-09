@@ -51,9 +51,24 @@ class Solutions:
                 numb+=symbols[s[i]]
                 i+=1
         return numb 
+             
+   # def longestCommonPrefix(self, strs):
+    #    current_prefix, candidate="",strs[0]    
+     #   i=0
+      #  while(i<len(candidate)):
+       #     if all(str.startswith(candidate[:i+1]) for str in strs[1:]):
+        #        current_prefix=candidate[:i+1]
+         #       i+=1
+          #  else:
+           #     break
+        #return current_prefix
      
-        
+    def longestCommonPrefix(self, strs):
+        current_prefix, candidate="",strs[0]    
+        i=0
+        while( all(str.startswith(candidate[:i+1]) for str in strs[1:])):
+            current_prefix=candidate[:i+1]
+            i+=1
+        return current_prefix
      
-        
-     
-        
+    
