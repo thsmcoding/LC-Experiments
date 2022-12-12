@@ -64,11 +64,18 @@ class Solutions:
         #return current_prefix
      
     def longestCommonPrefix(self, strs):
-        current_prefix, candidate="",strs[0]    
-        i=0
-        while( all(str.startswith(candidate[:i+1]) for str in strs[1:])):
+        current_prefix, i  ="", 0
+        if len(strs)==1:
+            return strs[0]
+        elif any(str == "" for str in strs):
+            return ""
+        candidate=strs[0]
+        while(all(str.startswith(candidate[:i+1]) for str in strs[1:]) and i < len(candidate)):
             current_prefix=candidate[:i+1]
+            print(current_prefix)
             i+=1
+        # else:
+            #     raise IndexError("Non existing index in input array of strings")
         return current_prefix
      
     
