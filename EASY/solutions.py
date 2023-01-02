@@ -1,8 +1,9 @@
-# -*- coding: utf-8 -*-
+#- coding: utf-8 -*-
 """
 Created on Mon Nov 28 16:02:17 2022
 author:HTS
 """
+     
 class Solutions:    
     
     #Finding the sum

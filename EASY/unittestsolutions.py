@@ -10,6 +10,7 @@ import solutions
 class SolutionUnittestsMethods(ut.TestCase):
     test_obj=solutions.Solutions()
     
+    
     def test_twoSum(self):
         result1=self.test_obj.twoSum([3,3], 6)
         self.assertEqual([0,1], result1, "FAIL! [0,1] was expected")
