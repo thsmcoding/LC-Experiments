@@ -41,7 +41,8 @@ class SolutionUnittestsMethods(ut.TestCase):
         return 0
   
     def test_mergeTwoLists(self):
-        list1, list2=[1,2,4,5,12], [1,2,3,4,5,10,14]
+        #list1, list2=[1,2,4,5,12], [1,2,3,4,5,10,14]
+        list1, list2=[1,2,4,5,12], []
         result1=ln.ListNode.createList(list1)
         result2=ln.ListNode.createList(list2)
         print("RESULT1:", result1)
