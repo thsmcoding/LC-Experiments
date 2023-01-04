@@ -3,7 +3,10 @@
 Created on Mon Nov 28 16:02:17 2022
 author:HTS
 """
-     
+    
+
+import ListNode as ln
+
 class Solutions:    
     
     #Finding the sum
@@ -78,5 +81,30 @@ class Solutions:
         # else:
             #     raise IndexError("Non existing index in input array of strings")
         return current_prefix
-     
     
+    def auxMerge(self, list1, list2, head, result):
+        if list1 is None:
+            result.next=list2
+            return head.next
+        elif list2 is None:
+            result.next=list1
+            return head.next
+        else:
+            if list1.val <= list2.val:
+                l1bis=list1
+                l1bis_n=list1.next
+                l1bis.next=None
+                result.next=l1bis
+                return self.auxMerge(l1bis_n,list2, head, result.next)
+            else:
+                l2bis=list2
+                l2bis_n=list2.next
+                l2bis.next=None
+                result.next=l2bis
+                return self.auxMerge(list1, l2bis_n, head, result.next)
+                
+    def mergeTwoLists(self, list1, list2):
+        head=ln.ListNode(-1, None)
+        result=head
+        return self.auxMerge(list1, list2, head, result)
+            
