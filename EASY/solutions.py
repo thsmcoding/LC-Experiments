@@ -107,4 +107,14 @@ class Solutions:
         head=ln.ListNode(-1, None)
         result=head
         return self.auxMerge(list1, list2, head, result)
+    
+    def mergeImproved(self, list1, list2):
+        if not list1 or not list2:
+            return list1 or list2
+        if list1.val < list2.val:
+            list1.next=self.mergeImproved(list1.next, list2)
+            return list1
+        else:
+            list2.next=self.mergeImproved(list1, list2.next)
+            return list2
             
