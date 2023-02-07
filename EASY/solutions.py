@@ -119,9 +119,9 @@ class Solutions:
             return list2
     
     def auxremoveElement(self, nums, val, st, end):
-        if st>=end:
-            end=0 if (len(nums)==0) else end
-            return end
+        if st>end:
+            #end=0 if (len(nums)==0) else end
+            return end+1
         if nums[st] == val:
             if nums[end] == val:
                 end=end-1
@@ -135,15 +135,16 @@ class Solutions:
         return self.auxremoveElement(nums, val, 0, len(nums)-1)
     
     def it_removeElement(self, nums, val):
-        i,k=0, len(nums)-1 if (nums or len(nums)>0) else 0            
-        while(i<k):
-            if nums[i]==nums[k]==val:
-                k=k-1
-            elif nums[i]==val and not (nums[k]==val):
-                nums[i],nums[k], i, k=nums[k],nums[i], i+1, k-1
+        i,k=0, len(nums)-1
+        while(i<=k):
+            if nums[i]==val:
+                if nums[k] ==val:
+                    k=k-1
+                else:
+                    nums[i],nums[k], i, k=nums[k],nums[i], i+1, k-1
             else:
                 i=i+1
-        return k
+        return k+1
             
             
             
