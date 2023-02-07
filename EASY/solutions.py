@@ -118,4 +118,39 @@ class Solutions:
             list2.next=self.mergeImproved(list1, list2.next)
             return list2
     
+    def auxremoveElement(self, nums, val, st, end):
+        if st>=end:
+            end=0 if (len(nums)==0) else end
+            return end
+        if nums[st] == val:
+            if nums[end] == val:
+                end=end-1
+            else:
+                nums[st],nums[end], st, end=nums[end], nums[st], st+1, end-1
+        else:
+            st=st+1
+        return self.auxremoveElement(nums, val, st, end)    
     
+    def removeElement(self, nums, val):
+        return self.auxremoveElement(nums, val, 0, len(nums)-1)
+    
+    def it_removeElement(self, nums, val):
+        i,k=0, len(nums)-1 if (nums or len(nums)>0) else 0            
+        while(i<k):
+            if nums[i]==nums[k]==val:
+                k=k-1
+            elif nums[i]==val and not (nums[k]==val):
+                nums[i],nums[k], i, k=nums[k],nums[i], i+1, k-1
+            else:
+                i=i+1
+        return k
+            
+            
+            
+            
+            
+        
+        
+        
+        
+        
