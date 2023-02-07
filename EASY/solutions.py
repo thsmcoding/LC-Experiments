@@ -144,12 +144,19 @@ class Solutions:
                     nums[i],nums[k], i, k=nums[k],nums[i], i+1, k-1
             else:
                 i=i+1
-        return k+1
+        return k+1            
             
-            
-            
-            
-            
+    def removeDuplicates(self, nums):
+         i,length=0, len(nums)
+         while(i<length-1):
+             if nums[i] == nums[i+1]:
+                 del(nums[i])
+                 i -=1
+                 length -=1
+             i +=1
+         return length    
+    
+    
         
         
         
