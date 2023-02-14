@@ -49,7 +49,13 @@ class SolutionUnittestsMethods(ut.TestCase):
         print("RESULT2:", result2)
         result_merged=self.test_obj.mergeImproved(result1, result2)
         print(result_merged)
-        
+    
+    def test_searchInsert(self):
+        nums1, target1a, target1b =[3], -1,20
+        result1a=self.test_obj.searchInsert(nums1, target1a)
+        self.assertEqual(result1a,0, "FAIL! Expected result is index 0.")
+
+
                     
 if __name__=="__main__":
     ut.main()
