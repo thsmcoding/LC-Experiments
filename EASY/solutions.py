@@ -6,6 +6,7 @@ author:HTS
     
 
 import ListNode as ln
+import itertools as it
 
 class Solutions:    
     
@@ -168,8 +169,24 @@ class Solutions:
                 high=mid-1
         return low
                 
+    def func(self,u,v):
+        if u is None or v is None:
+            return v or u  
+        elif u!=v:
+            return '1'
+        return '0'    
     
-    
+    #USING ITERTOOLS module but issue with function zip_longest
+    def check(self, l1,l2):
+        total=len(l1)+len(l2)
+        hold='0'
+        l3=['0']*total
+        print(l3)
+        for x, y in it.zip_longest(l1, l2):
+            total -=1
+            l3[total]= self.func(hold, self.func(x,y))
+            hold='1' if x==y==1 else '0'
+        return l3
         
         
         
