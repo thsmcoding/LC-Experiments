@@ -188,7 +188,25 @@ class Solutions:
             hold='1' if x==y==1 else '0'
         return l3
         
-        
-        
-        
-        
+    def addBinary(self, a, b):
+       la, lb =[int(c) for c in a], [int(c) for c in b]
+       print(la)
+       print(lb)
+       lengtha, lengthb=len(la), len(lb)
+       result,hold=[], 0
+       if lengtha <lengthb:
+           tmp=[0]*(lengthb-lengtha)
+           la=tmp.append(la)
+       else:
+           tmp=[0]*(lengtha-lengthb)
+           lb=tmp.append(lb)     
+       while(lengtha>-1 or lengthb>-1):
+           print(result)
+           lengtha -=1
+           lengthb -=1
+           result.append((hold+la[lengtha]+lb[lengthb])%2)
+           hold=(hold+la[lengtha]+lb[lengthb])//2
+              
+       if hold:
+           result.append(hold)
+       return result[::-1]
