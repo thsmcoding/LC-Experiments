@@ -188,32 +188,45 @@ class Solutions:
             hold='1' if x==y==1 else '0'
         return l3
         
-    def addBinary(self, a, b):
-       la, lb =[int(c) for c in a], [int(c) for c in b]
-       lengtha, lengthb=len(la), len(lb)
-       result,hold=[], 0
-       if lengtha <lengthb:
-           tmp=[0]*(lengthb-lengtha)
-           tmp.extend(la)
-           la=tmp
-       else:
-           tmp=[0]*(lengtha-lengthb)
-           tmp.extend(lb)    
-           lb=tmp           
-       lengtha, lengthb=len(la)-1, len(lb)-1
-       while(lengtha>-1):
-           result.append((hold+la[lengtha]+lb[lengthb])%2)
-           hold=(hold+la[lengtha]+lb[lengthb])//2 
-           lengtha -=1
-           lengthb -=1             
-       if hold:
-           result.append(hold)               
-       result=[str(c) for c in result]
-       return ''.join(result[::-1])
+    # def addBinary(self, a, b):
+    #    la, lb =[int(c) for c in a], [int(c) for c in b]
+    #    lengtha, lengthb=len(la), len(lb)
+    #    result,hold=[], 0
+    #    if lengtha <lengthb:
+    #        tmp=[0]*(lengthb-lengtha)
+    #        tmp.extend(la)
+    #        la=tmp
+    #    else:
+    #        tmp=[0]*(lengtha-lengthb)
+    #        tmp.extend(lb)    
+    #        lb=tmp           
+    #    lengtha, lengthb=len(la)-1, len(lb)-1
+    #    while(lengtha>-1):
+    #        result.append((hold+la[lengtha]+lb[lengthb])%2)
+    #        hold=(hold+la[lengtha]+lb[lengthb])//2 
+    #        lengtha -=1
+    #        lengthb -=1             
+    #    if hold:
+    #        result.append(hold)               
+    #    result=[str(c) for c in result]
+    #    return ''.join(result[::-1])
           
-   
     
+    def addBinary(self, a,b):
+        max_length=len(a) if len(a)>len(b) else len(b)
+        result=[]
+        la, lb = [int(a[u]) if u < len(a) else 0 for u in range(max_length-1,-1,-1)], [int(b[u]) if u <len(b) else 0 for u in range(max_length-1,-1,-1)]
+        print(la, a)
+        print(lb, b)
+        bin_sum=[(0,(la[u]+lb[u])%2) if u==len(la)-1 else ((la[u]+lb[u]+(la[u+1]+lb[u+1])//2)//2, (la[u]+lb[u]+(la[u+1]+lb[u+1])//2)%2) for (u,v) in zip(range(len(la)-1,-1, -1), range(len(lb)-1,-1,-1))]
+        if (bin_sum[0])[0] == 1:
+            result[0]=1
+        result.extend([d for (h,d) in bin_sum])
+        return result
+        
+          
 if __name__=="__main__":
-    s1, s2= "101", "1"
-    res=Solutions().addBinary(s1, s2)        
+    s1, s2= "11", "1"
+    res=Solutions().addBinary(s1, s2)   
+    print(" **************** ")     
     print(res)
