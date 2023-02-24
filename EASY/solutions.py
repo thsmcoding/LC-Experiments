@@ -190,23 +190,30 @@ class Solutions:
         
     def addBinary(self, a, b):
        la, lb =[int(c) for c in a], [int(c) for c in b]
-       print(la)
-       print(lb)
        lengtha, lengthb=len(la), len(lb)
        result,hold=[], 0
        if lengtha <lengthb:
            tmp=[0]*(lengthb-lengtha)
-           la=tmp.append(la)
+           tmp.extend(la)
+           la=tmp
        else:
            tmp=[0]*(lengtha-lengthb)
-           lb=tmp.append(lb)     
-       while(lengtha>-1 or lengthb>-1):
-           print(result)
-           lengtha -=1
-           lengthb -=1
+           tmp.extend(lb)    
+           lb=tmp           
+       lengtha, lengthb=len(la)-1, len(lb)-1
+       while(lengtha>-1):
            result.append((hold+la[lengtha]+lb[lengthb])%2)
-           hold=(hold+la[lengtha]+lb[lengthb])//2
-              
+           hold=(hold+la[lengtha]+lb[lengthb])//2 
+           lengtha -=1
+           lengthb -=1             
        if hold:
-           result.append(hold)
-       return result[::-1]
+           result.append(hold)               
+       result=[str(c) for c in result]
+       return ''.join(result[::-1])
+          
+   
+    
+if __name__=="__main__":
+    s1, s2= "101", "1"
+    res=Solutions().addBinary(s1, s2)        
+    print(res)
