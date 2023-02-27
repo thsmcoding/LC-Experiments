@@ -168,49 +168,6 @@ class Solutions:
             else:      
                 high=mid-1
         return low
-                
-    def func(self,u,v):
-        if u is None or v is None:
-            return v or u  
-        elif u!=v:
-            return '1'
-        return '0'    
-    
-    #USING ITERTOOLS module but issue with function zip_longest
-    def check(self, l1,l2):
-        total=len(l1)+len(l2)
-        hold='0'
-        l3=['0']*total
-        print(l3)
-        for x, y in it.zip_longest(l1, l2):
-            total -=1
-            l3[total]= self.func(hold, self.func(x,y))
-            hold='1' if x==y==1 else '0'
-        return l3
-        
-    # def addBinary(self, a, b):
-    #    la, lb =[int(c) for c in a], [int(c) for c in b]
-    #    lengtha, lengthb=len(la), len(lb)
-    #    result,hold=[], 0
-    #    if lengtha <lengthb:
-    #        tmp=[0]*(lengthb-lengtha)
-    #        tmp.extend(la)
-    #        la=tmp
-    #    else:
-    #        tmp=[0]*(lengtha-lengthb)
-    #        tmp.extend(lb)    
-    #        lb=tmp           
-    #    lengtha, lengthb=len(la)-1, len(lb)-1
-    #    while(lengtha>-1):
-    #        result.append((hold+la[lengtha]+lb[lengthb])%2)
-    #        hold=(hold+la[lengtha]+lb[lengthb])//2 
-    #        lengtha -=1
-    #        lengthb -=1             
-    #    if hold:
-    #        result.append(hold)               
-    #    result=[str(c) for c in result]
-    #    return ''.join(result[::-1])
-          
     
     def addBinary(self, a,b):
         max_length=len(a) if len(a)>len(b) else len(b)
