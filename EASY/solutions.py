@@ -214,23 +214,36 @@ class Solutions:
     
     def addBinary(self, a,b):
         max_length=len(a) if len(a)>len(b) else len(b)
-        result, hold=[], 0
-        la, lb = [int(a[u]) if u < len(a) else 0 for u in range(max_length-1,-1,-1)], [int(b[u]) if u <len(b) else 0 for u in range(max_length-1,-1,-1)]
-        print(la," : ", a)
-        print(lb, " : ",b)
-        for (u,v) in zip(range(len(la)-1,-1, -1), range(len(lb)-1,-1,-1)):
-            result.append((la[u] + lb[u]+hold)%2)
+        result, hold=[0]*(max_length+1), 0
+        index=len(result)-1        
+        la=[int(a[u]) for u in range(0, len(a))]
+        tmp=[0]*(max_length-len(a))
+        tmp.extend(la)
+        la=tmp        
+        lb=[int(b[u]) for u in range(0, len(b))]
+        tmp=[0]*(max_length-len(b))
+        tmp.extend(lb)
+        lb=tmp
+        # print(la," : ", a)
+        # print(lb, " : ",b)
+        for u in range(len(la)-1,-1, -1):
+            result[index]=(la[u] + lb[u]+hold)%2
             hold=(la[u]+lb[u]+hold)//2
-        if hold==1:
-            tmp=[1]
-            tmp.extend(result)
-            result=tmp
+            index -=1
+        if hold:
+            result[index]=hold   
+        else:
+            del(result[0])
         return ''.join([str(u) for u in result])
 
            
 
 if __name__=="__main__":
-    s1, s2= "11", "1"
+    s1, s2= "111", "111"
     res=Solutions().addBinary(s1, s2)   
     print(" **************** ")     
+    print(res)
+    print(" **************** ")     
+    s1, s2= "1010", "1011"
+    res=Solutions().addBinary(s1, s2) 
     print(res)
