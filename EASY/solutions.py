@@ -173,22 +173,12 @@ class Solutions:
         max_length=len(a) if len(a)>len(b) else len(b)
         result, hold=[0]*(max_length+1), 0
         index=len(result)-1        
-        # la=[int(a[u]) for u in range(0, len(a))]
-        # tmp=[0]*(max_length-len(a))
-        # tmp.extend(la)
-        # la=tmp        
-        # lb=[int(b[u]) for u in range(0, len(b))]
-        # tmp=[0]*(max_length-len(b))
-        # tmp.extend(lb)
-        # lb=tmp
         la=[0]*(max_length-len(a))
         lb=[0]*(max_length-len(b))
         la[(max_length-len(a)):max_length]=[int(c) for c in a]
         lb[(max_length-len(b)):max_length]=[int(c) for c in b]
-
         print(la, " ::: ", a)
         print(lb, " ::: ", b)
-
         for u in range(len(la)-1,-1, -1):
             result[index]=(la[u] + lb[u]+hold)%2
             hold=(la[u]+lb[u]+hold)//2
@@ -198,8 +188,7 @@ class Solutions:
         else:
             del(result[0])
         return ''.join([str(u) for u in result])
-
-           
+         
 
 if __name__=="__main__":
     s1, s2= "111", "111"
@@ -210,3 +199,12 @@ if __name__=="__main__":
     s1, s2= "1010", "1011"
     res=Solutions().addBinary(s1, s2) 
     print(res)
+    print(" **************** ")     
+    print(Solutions().faster_addBinary(s1, s2))
+
+
+
+
+
+
+
