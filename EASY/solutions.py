@@ -24,3 +24,9 @@ class Solutions:
         sum_10=int(a,2)+int(b,2)
         return f"{sum_10:b}"
         #str(bin(sum_10)).lstrip('-0b') ----> missed case where result has a leading zero
+    
+    #addToArrayForm: adding numbers in array-form
+    def addToArrayForm(self, num, k):
+        tostr=int(''.join([str(c) for c in num]))+k
+        return list(map(lambda x: int(x), str(tostr)))
+        
