@@ -22,4 +22,5 @@ class Solutions:
     #addBinary: return the binary sum of two strings as a binary string
     def addBinary(self, a, b):
         sum_10=int(a,2)+int(b,2)
-        return str(bin(sum_10)).lstrip('-0b')
+        return f"{sum_10:b}"
+        #str(bin(sum_10)).lstrip('-0b') ----> missed case where result has a leading zero
