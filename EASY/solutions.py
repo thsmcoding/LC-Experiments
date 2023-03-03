@@ -29,4 +29,11 @@ class Solutions:
     def addToArrayForm(self, num, k):
         tostr=int(''.join([str(c) for c in num]))+k
         return list(map(lambda x: int(x), str(tostr)))
+    
+    #plusOne:Increment an integer in its array from
+    def plusOne(self, digits):
+        result= int(''.join([str(c) for c in digits]))+1
+        return list(map(lambda x: int(x), [u for u in str(result)]))
+        
+        
         

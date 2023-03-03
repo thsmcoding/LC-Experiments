@@ -42,6 +42,29 @@ class SolutionUnittestsMethods(ut.TestCase):
         result3=self.test_obt.addToArrayForm([2,1,5], k = 806)
         self.assertEqual(result3, [1,0,2,1], "FAIL! Should return [1,0,2,1] ")
 
+    def test_addToArrayForm(self):
+        result1=self.test_obt.addToArrayForm([1,2,0,0], k = 34)
+        self.assertEqual(result1, [1,2,3,4], "FAIL! Should return [1,2,3,4] ")
+        result2=self.test_obt.addToArrayForm([2,7,4], k = 181)
+        self.assertEqual(result2, [4,5,5], "FAIL! Should return [4,5,5] ")
+        result3=self.test_obt.addToArrayForm([2,1,5], k = 806)
+        self.assertEqual(result3, [1,0,2,1], "FAIL! Should return [1,0,2,1] ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                          
 if __name__=="__main__":
     ut.main()
