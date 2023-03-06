@@ -21,6 +21,7 @@ class Solutions:
 
     #Checking if a number is a palindrome 
     def isPalindrome(self,nbr):
+ 
         def check_list_for_palindrome(nbr, l):
             if nbr<0:
                 return False
@@ -190,17 +191,17 @@ class Solutions:
         return ''.join([str(u) for u in result])
          
 
-if __name__=="__main__":
-    s1, s2= "111", "111"
-    res=Solutions().addBinary(s1, s2)   
-    print(" **************** ")     
-    print(res)
-    print(" **************** ")     
-    s1, s2= "1010", "1011"
-    res=Solutions().addBinary(s1, s2) 
-    print(res)
-    print(" **************** ")     
-    print(Solutions().faster_addBinary(s1, s2))
+# if __name__=="__main__":
+#     s1, s2= "111", "111"
+#     res=Solutions().addBinary(s1, s2)   
+#     print(" **************** ")     
+#     print(res)
+#     print(" **************** ")     
+#     s1, s2= "1010", "1011"
+#     res=Solutions().addBinary(s1, s2) 
+#     print(res)
+#     print(" **************** ")     
+#     print(Solutions().faster_addBinary(s1, s2))
 
 
 
