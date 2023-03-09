@@ -190,22 +190,50 @@ class Solutions:
             del(result[0])
         return ''.join([str(u) for u in result])
          
+    
+    def merge(self, nums1,m,nums2, n):
+        print("START :", nums1)
+        i,j,k=m-1,n-1,m+n-1
+        while(k>-1):
+            if j<0:
+                return
+            if i<0:
+                nums1[0:k+1]=nums2
+                i -=1
+            else:
+                if (nums1[i] > nums2[j]):
+                    nums1[k]= nums1[i]
+                    i -=1
+                else:       
+                    nums1[k]=nums2[j]
+                    j -=1
+            k -=1
 
-# if __name__=="__main__":
-#     s1, s2= "111", "111"
-#     res=Solutions().addBinary(s1, s2)   
-#     print(" **************** ")     
-#     print(res)
-#     print(" **************** ")     
-#     s1, s2= "1010", "1011"
-#     res=Solutions().addBinary(s1, s2) 
-#     print(res)
-#     print(" **************** ")     
-#     print(Solutions().faster_addBinary(s1, s2))
-
-
-
-
-
-
-
+if __name__=="__main__":
+    nums1,m,nums2,n=[1,2,3,0,0,0], 3, [2,5,6],3
+    Solutions().merge(nums1, m, nums2, n)
+    print("END :", nums1)
+    print("*************************************")       
+    nums1,m,nums2,n=[0], 0, [1],1
+    Solutions().merge(nums1, m, nums2, n)
+    print("END :", nums1)
+    print("*************************************")       
+    nums1,m,nums2,n=[1], 1, [],0
+    Solutions().merge(nums1, m, nums2, n)
+    print("END :", nums1)
+    # s1, s2= "111", "111"
+    # res=Solutions().addBinary(s1, s2)   
+    # print(" **************** ")     
+    # print(res)
+    # print(" **************** ")     
+    # s1, s2= "1010", "1011"
+    # res=Solutions().addBinary(s1, s2) 
+    # print(res)
+    # print(" **************** ")     
+    # print(Solutions().faster_addBinary(s1, s2))
+    
+    
+    
+    
+    
+    
