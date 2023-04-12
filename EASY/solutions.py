@@ -211,32 +211,62 @@ class Solutions:
             k -=1
             
     #def findIndex(self, haystack, needle):
-    
-    
+   
+    def findBinary(self,nums1, target):
+        low, high = 0, len(nums1)
+        while(low<high):
+            mid=(low+high)//2
+            if nums1[mid] == target:
+                return target
+            elif nums1[mid]<target:
+                low += 1
+            else:
+                high -=1
+        return -1            
+        
+    def getCommon(self, nums1, nums2):
+        (ar1,ar2)=(nums1, nums2) if len(nums1)<=len(nums2) else (nums2, nums1)
+        for u in ar1:
+            if self.findBinary(ar2, u) == u:
+                return u
+        return -1
+        
             
 if __name__=="__main__":
-    nums1,m,nums2,n=[1,2,3,0,0,0], 3, [2,5,6],3
-    Solutions().merge(nums1, m, nums2, n)
-    print("END :", nums1)
-    print("*************************************")       
-    nums1,m,nums2,n=[0], 0, [1],1
-    Solutions().merge(nums1, m, nums2, n)
-    print("END :", nums1)
-    print("*************************************")       
-    nums1,m,nums2,n=[1], 1, [],0
-    Solutions().merge(nums1, m, nums2, n)
-    print("END :", nums1)
+    # nums1,m,nums2,n=[1,2,3,0,0,0], 3, [2,5,6],3
+    # Solutions().merge(nums1, m, nums2, n)
+    # print("END :", nums1)
+    # print("*************************************")       
+    # nums1,m,nums2,n=[0], 0, [1],1
+    # Solutions().merge(nums1, m, nums2, n)
+    # print("END :", nums1)
+    # print("*************************************")       
+    # nums1,m,nums2,n=[1], 1, [],0
+    # Solutions().merge(nums1, m, nums2, n)
+    # print("END :", nums1)
     
-    print("*************************************")       
-    nums1,m,nums2,n=[4,5,6,0,0,0], 3, [1,2,3],3
-    Solutions().merge(nums1, m, nums2, n)
-    print("END :", nums1)
+    # print("*************************************")       
+    # nums1,m,nums2,n=[4,5,6,0,0,0], 3, [1,2,3],3
+    # Solutions().merge(nums1, m, nums2, n)
+    # print("END :", nums1)
     
-    print("*************************************")       
-    nums1,m,nums2,n= [4,0,0,0,0,0],1, [1,2,3,5,6],5
-    Solutions().merge(nums1, m, nums2, n)
-    print("END :", nums1)
+    # print("*************************************")       
+    # nums1,m,nums2,n= [4,0,0,0,0,0],1, [1,2,3,5,6],5
+    # Solutions().merge(nums1, m, nums2, n)
+    # print("END :", nums1)
    
+    print("************************ FUNCTION getCommon *************")
+    ar1, ar2 = [1,2,3], [2,4]
+    res=Solutions().getCommon(ar1, ar2)
+    print(res)    
+    print("*****************")
+    ar1, ar2 = [1,2,3,6],[2,3,4,5]
+    res=Solutions().getCommon(ar1, ar2)
+    print(res) 
+    print("*****************")
+    ar1, ar2 = [1],[5]
+    res=Solutions().getCommon(ar1, ar2)
+    print(res) 
     
     # s1, s2= "111", "111"
     # res=Solutions().addBinary(s1, s2)   
