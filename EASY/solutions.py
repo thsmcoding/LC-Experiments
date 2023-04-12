@@ -264,7 +264,7 @@ if __name__=="__main__":
     res=Solutions().getCommon(ar1, ar2)
     print(res) 
     print("*****************")
-    ar1, ar2 = [1],[5]
+    ar1, ar2 = [1,1,1,1],[1,5,5,5,5]
     res=Solutions().getCommon(ar1, ar2)
     print(res) 
     
