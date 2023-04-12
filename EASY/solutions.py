@@ -210,21 +210,9 @@ class Solutions:
                     j -=1
             k -=1
             
-    def            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+    #def findIndex(self, haystack, needle):
+    
+    
             
 if __name__=="__main__":
     nums1,m,nums2,n=[1,2,3,0,0,0], 3, [2,5,6],3
